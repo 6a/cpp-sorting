@@ -24,11 +24,13 @@ namespace utility
 		{
 			for (int index = 0; index < tests.size(); ++index)
 			{
-				sortingFunction(tests[index].source);
+				std::vector<T> toSort(tests[index].source);
 
-				if (!equal(tests[index].source, tests[index].expected))
+				sortingFunction(toSort);
+
+				if (!equal(toSort, tests[index].expected))
 				{
-					utility::reportFailure(tests[index].source, tests[index].expected);
+					utility::reportFailure(tests[index].source, toSort, tests[index].expected);
 
 					return index;
 				}

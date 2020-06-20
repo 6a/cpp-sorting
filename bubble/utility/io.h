@@ -49,11 +49,12 @@ namespace utility
 
     // Reports a failure
     template<class T>
-    void reportFailure(const std::vector<T> actual, const std::vector<T> expected)
+    void reportFailure(const std::vector<T> source, const std::vector<T> actual, const std::vector<T> expected)
     {
-        std::string expectedString = vectorToString(expected);
+        std::string sourceString = vectorToString(source);
         std::string actualString = vectorToString(actual);
+        std::string expectedString = vectorToString(expected);
 
-        std::cout << "Test failed.\nExpected: " << expectedString << "\nActual:   " << actualString << "\n" << std::endl;
+        std::cout << "Test failed.\nSource:   " << sourceString << "\nActual:   " << actualString << "\nExpected: " << expectedString << "\n" << std::endl;
     }
 }
