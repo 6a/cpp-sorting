@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "../utility/testrunner.h"
+#include "../utility/cases.h"
 #include "../utility/io.h"
 
 namespace bubble
@@ -30,13 +31,7 @@ namespace bubble
 	// Runs all the test cases. Returns -1 if all tests pass, else returns the index of the failed test.
 	void test(int testID)
 	{
-		std::vector<utility::testCase<int>> cases
-		{
-			utility::testCase<int>{
-				std::vector<int>{1, 4, 5, 2, 3},
-				std::vector<int>{1, 2, 3, 4, 5},
-			},
-		};
+		std::vector<utility::testCase<int>> cases(utility::cases);
 
 		utility::testRunner<int> tr("Bubble", cases, sort);
 
