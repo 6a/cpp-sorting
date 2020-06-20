@@ -1,15 +1,15 @@
 #pragma once
 
 #include <vector>
+#include <chrono>
 #include <iterator>
-#include <iostream>
 #include <sstream>
 #include <iomanip>
 
 namespace utility
 {
     // Prints the formatted result of the test named "test" to the std output stream.
-    void outputResult(std::string test, int result)
+    void outputResult(std::string test, int result, std::chrono::milliseconds duration)
     {
         std::stringstream resultStringStream;
         std::stringstream nameStringStream;
@@ -27,7 +27,7 @@ namespace utility
             resultStringStream << "failed on test " << result << " ]";
         }
 
-        std::cout << resultStringStream.str() << "\n" << std::endl;
+        std::cout << resultStringStream.str() << " | Duration: " << duration.count() << "ms\n" << std::endl;
     }
 
     // Returns a string representation of a vector of type T
