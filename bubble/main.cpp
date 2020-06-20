@@ -1,43 +1,32 @@
 #include <iostream>
 #include <random>
-#include <functional>
-#include "algorithms/bubble.h"
+
+#include "utility/testcase.h"
+#include "utility/testrunner.h"
+#include "utility/cases.h"
 #include "utility/io.h"
 
-void outputTestCases()
+#include "algorithms/bubble.h"
+
+template<class T>
+void test(std::string name, void (*sortingFunction)(std::vector<T>&))
 {
-	std::default_random_engine generator;
+	std::vector<utility::testCase<int>> cases(utility::generateCases(1000000, 0, 30));
 
-	std::uniform_int_distribution<size_t> nDistribution(4, 10);
-	std::uniform_int_distribution<int> vDistribution(INT8_MIN, INT8_MAX);
+	std::chrono::high_resolution_clock timer;
+	std::chrono::steady_clock::time_point start = timer.now();
 
-	auto nRand = std::bind(nDistribution, generator);
-	auto vRand = std::bind(vDistribution, generator);
+	utility::testRunner<int> tr(name, cases, sortingFunction);
 
-	std::string prefix = "testCase<int>{\n    std::vector<int>";
-	std::string preVec = "    std::vector<int>";
-	std::string suffix = ",\n},";
+	int result = tr.run();
 
-	for (size_t i = 0; i < 20; i++)
-	{
-		size_t n = nRand();
-		std::vector<int> generatedVector;
+	std::chrono::steady_clock::time_point end = timer.now();
+	std::chrono::milliseconds duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
-		for (size_t j = 0; j < n; j++)
-		{
-			generatedVector.push_back(vRand());
-		}
-
-		std::cout << prefix << utility::vectorToString(generatedVector) << "," << std::endl;
-
-		std::vector<int> sortedGeneratedVector(generatedVector);
-		std::sort(sortedGeneratedVector.begin(), sortedGeneratedVector.end());
-
-		std::cout << preVec << utility::vectorToString(sortedGeneratedVector) << suffix << std::endl;
-	}
+	utility::outputResult(tr.name, result, duration);
 }
 
 int main()
 {
-	bubble::test(0);
+	test("Bubble", bubble::sort<int>);
 }
