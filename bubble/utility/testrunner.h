@@ -22,7 +22,7 @@ namespace utility
 
 		int run()
 		{
-			for (size_t index = 0; index < tests.size(); ++index)
+			for (int index = 0; index < tests.size(); ++index)
 			{
 				std::vector<T> toSort(tests[index].source);
 
@@ -34,8 +34,6 @@ namespace utility
 
 					return index;
 				}
-
-				++index;
 			}
 
 			return -1;

@@ -16,9 +16,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="algorithms\bubble.cpp">
-      <Filter>Source Files\algorithms</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utility\testcase.h">
@@ -32,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="algorithms\bubble.h">
       <Filter>Source Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\cases.h">
+      <Filter>Source Files\utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
