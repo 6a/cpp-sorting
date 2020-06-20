@@ -49,7 +49,7 @@ namespace utility
 
     // Reports a failure
     template<class T>
-    void reportFailure(std::vector<T> actual, std::vector<T> expected)
+    void reportFailure(const std::vector<T> actual, const std::vector<T> expected)
     {
         std::string expectedString = vectorToString(expected);
         std::string actualString = vectorToString(actual);
