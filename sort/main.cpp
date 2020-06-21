@@ -33,7 +33,7 @@ int main()
 
 	test("Quick", quick::sort<int>);
 
-	test("Merge - Top Down", merge::topDownSort<int>);
+	test("Merge - Top Down", merge::topdown::sort<int>);
 
-	//test("Merge - Bottom Up", merge::bottomUpSort<int>);
+	test("Merge - Bottom Up", merge::bottomup::sort<int>);
 }
