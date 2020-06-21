@@ -47,8 +47,8 @@ namespace quick
 	template<class T>
 	void sort(std::vector<T>& toSort)
 	{
-		// Noop for empty vectors.
-		if (toSort.size() == 0) return;
+		// Noop for empty vectors or vectors with only 1 element.
+		if (toSort.size() <= 1) return;
 
 		sort_impl(toSort, 0, toSort.size() - 1);
 	}
