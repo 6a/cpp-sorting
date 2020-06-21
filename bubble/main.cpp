@@ -8,6 +8,7 @@
 
 #include "algorithms/bubble.h"
 #include "algorithms/quick.h"
+#include "algorithms/merge.h"
 
 template<class T>
 void test(std::string name, void (*sortingFunction)(std::vector<T>&))
@@ -31,4 +32,8 @@ int main()
 	test("Bubble", bubble::sort<int>);
 
 	test("Quick", quick::sort<int>);
+
+	test("Merge - Top Down", merge::topDownSort<int>);
+
+	//test("Merge - Bottom Up", merge::bottomUpSort<int>);
 }

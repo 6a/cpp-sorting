@@ -36,5 +36,8 @@
     <ClInclude Include="algorithms\quick.h">
       <Filter>Source Files\algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="algorithms\merge.h">
+      <Filter>Source Files\algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

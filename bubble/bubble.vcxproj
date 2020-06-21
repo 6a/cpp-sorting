@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="algorithms\bubble.h" />
+    <ClInclude Include="algorithms\merge.h" />
     <ClInclude Include="algorithms\quick.h" />
     <ClInclude Include="utility\cases.h" />
     <ClInclude Include="utility\io.h" />
