@@ -8,6 +8,9 @@
 
 namespace utility
 {
+    const size_t TEST_NAME_MIN_SIZE = 20;
+    const int PASSING_TEST_OUTPUT = -1;
+
     // Prints the formatted result of the test named "test" to the std output stream.
     void outputResult(std::string test, int result, std::chrono::milliseconds duration)
     {
@@ -16,9 +19,9 @@ namespace utility
 
         nameStringStream << "\"" << test << "\":";
 
-        std::cout << "Test " << std::setw(15) << std::left << nameStringStream.str() << "[ ";
+        std::cout << "Test " << std::setw(TEST_NAME_MIN_SIZE) << std::left << nameStringStream.str() << "[ ";
 
-        if (result == -1)
+        if (result == PASSING_TEST_OUTPUT)
         {
             resultStringStream << "passed ]";
         }
