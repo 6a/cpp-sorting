@@ -85,12 +85,12 @@ namespace merge
 				// If the left run head is a valid index and is less than or equal to the right run head (which also exists)...
 				if (leftRunHead < runMiddle && (rightRunHead >= runEnd || toSort[leftRunHead] <= toSort[rightRunHead]))
 				{
-					std::swap(toSort[leftRunHead], workVector[mergeHead]);
+					std::swap(workVector[mergeHead], toSort[leftRunHead]);
 					++leftRunHead;
 				}
 				else
 				{
-					std::swap(toSort[rightRunHead], workVector[mergeHead]);
+					std::swap(workVector[mergeHead], toSort[rightRunHead]);
 					++rightRunHead;
 				}
 			}
